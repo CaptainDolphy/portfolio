@@ -1,0 +1,31 @@
+body{
+    background-color: #282c34;
+}
+.lipsum{
+    color: #dfdfdf;
+    position: relative;
+    text-align: center;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+.options{
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 20px;
+    
+
+}
+.projects{
+    row-gap: 10px;
+}
+
+h1{
+    color: #dfdfdf;
+    left: 50%;
+    text-align: center;
+
+}
+h2{
+    color: #282c34;
+    position: relative;
+}
