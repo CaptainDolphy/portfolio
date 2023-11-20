@@ -1,0 +1,142 @@
+body{
+    background-color: #282c34;
+    scroll-behavior: smooth;
+}
+
+.title{
+    position: fixed;
+    font-size: 80px;
+    text-align: center;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 650px;
+    height: 100px;
+    border-style: dotted;
+    border-color: rebeccapurple;
+    overflow: hidden;
+    animation: scrollCompensation both linear;
+    animation-timeline: scroll();
+}
+
+@keyframes scrollCompensation {
+	0% {
+	}
+	50% {
+		transition: translateY(-550px) translateX(-300px);
+	}
+	100% {
+		transform: translateY(-550px) translateX(-300px);
+	}
+}
+
+.title-name{
+    position: relative;
+    
+    height: 100px;
+    width: 800px;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: animation forwards;
+
+}
+
+.title-name:hover{
+    position: relative; 
+    animation: leftright 2s forwards;
+}
+
+@keyframes leftright {
+    0%,
+    20% {
+      transform: translateX(0%);
+      left: 0%;
+    }
+    80%,
+    100% {
+      transform: translateX(-100%);
+      left: -100%;
+    }
+  }
+
+
+
+
+.door{
+    position: absolute;
+    top: 60% ;
+    left: 50%;
+    translate: -50%;
+    height: 300px;
+    width: 200px;
+    display: flex;
+}
+.door-side{
+    flex: 1;
+}
+.door-side.left{
+    background-color: red;
+    animation: door-side-left forwards;
+    animation-timeline: scroll();
+    animation-range: entry 0% cover 50%;
+}
+.door-side.right{
+    background-color: greenyellow;
+    animation: door-side-right forwards;
+    animation-timeline: scroll();
+    animation-range: entry 0% cover 50%;
+   
+}
+@keyframes door-side-left {
+    25% {
+	    transform: translateY(250px);
+    }
+    10% {
+	    transform: translateY(100px);
+    }
+    50%{
+        transform:  perspective(50px) rotateY(16deg) translateY(1000px);
+	
+    }
+    100%{
+	    transform: perspective(50px) translateY(500px);
+    }
+
+}
+@keyframes door-side-right {
+    25% {
+	    transform: translateY(250px);
+    }
+    10% {
+	    transform: translateY(100px);
+	    margin-left: 0%;
+    }
+    50%{
+        transform:  perspective(50px) rotateY(-16deg) translateY(1000px);
+        margin-left: 100%;
+    }
+    100%{
+	    transform: perspective(50px) translateY(500px);
+	    top: 100px;
+    }
+}
+
+
+
+
+
+.steps {
+	position: absolute;
+	left: 50%;
+	top: 150%;
+}
+
+.stone {
+	background-color: brown;
+	position: relative;
+	top: 70%;
+	width: 10px;
+	height: 1000px;
+}
+
+

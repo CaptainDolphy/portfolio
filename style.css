@@ -1,44 +1,62 @@
-body{
-    background-color: #282c34;
-}
-.lipsum{
-    color: #dfdfdf;
-    position: relative;
-    text-align: center;
-    margin-left: 100px;
-    margin-right: 100px;
-}
-.options{
-    display: grid;
-    grid-template-columns: auto auto;
-    padding: 20px;
-    
-
-}
-.projects{
-    row-gap: 10px;
-    animation: projects 5s infinite;
-    border-style: dashed;
-}
-.projects:hover{
-    transform: scale(1.1);
-}
-.projects:hover, .projects:focus {
-    animation-play-state: paused;
-}
-@keyframes projects {
-    0% {background-color: red;}
-    50% {background-color: blue;}
-    10% {background-color: yellow;}
+body::-webkit-scrollbar{
+	display: none;
 }
 
-h1{
-    color: #dfdfdf;
-    left: 50%;
-    text-align: center;
+.header {
+	position: absolute;
+	left: 50%;
+	top: 40%;
+	transform: translate(-50%,-40%);
+	color: white;
+	font-size: 100px;
+	background: linear-gradient(white,black);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	
+       	z-index: 1;
+}
 
+@keyframes move-blink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
 }
-h2{
-    color: #282c34;
-    position: relative;
+
+
+@keyframes move-clouds-back {
+    from {background-position:0 0;}
+    to {background-position:10000px 0;}
 }
+
+.stars, .blinking, .clouds {
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  width:1000000%;
+  height:1000000%;
+  display:block;
+}
+
+.stars {
+  background:#000 url("stars.jpg") repeat top center;
+  background-size: auto;
+  z-index:0;
+}
+
+.blinking{
+  background:transparent url("blink.png") repeat top center;
+  z-index:1;
+
+   animation:move-blink-back 200s linear infinite;
+}
+
+.clouds{
+    background:transparent url("clouds.png") repeat top center;
+    background-size:auto;
+    z-index:3;
+
+    animation:move-clouds-back 200s linear infinite;
+}
+
+
